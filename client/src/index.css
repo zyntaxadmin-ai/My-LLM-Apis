@@ -191,3 +191,23 @@
 .dark .code-highlight .hljs-template-tag, .dark .code-highlight .hljs-symbol, .dark .code-highlight .hljs-bullet { color: oklch(0.78 0.12 150); }
 .dark .code-highlight .hljs-number, .dark .code-highlight .hljs-link { color: oklch(0.78 0.12 30); }
 .dark .code-highlight .hljs-deletion { color: oklch(0.7 0.16 25); }
+
+/* ── Mobile / PWA polish ─────────────────────────────────────────────── */
+/* Keep content clear of notches and the home bar when installed. */
+body {
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  -webkit-text-size-adjust: 100%;
+  overscroll-behavior-y: none;
+}
+header { padding-top: env(safe-area-inset-top, 0px); }
+@media (max-width: 767px) {
+  /* 16px inputs stop iOS Safari from zooming on focus. */
+  input, select, textarea { font-size: 16px; }
+  /* Larger tap targets for icon buttons. */
+  button, [role="button"] { min-height: 40px; }
+  /* Wide tables/code scroll inside themselves, never the page. */
+  table { display: block; max-width: 100%; overflow-x: auto; }
+  pre { overflow-x: auto; max-width: 100%; }
+}
